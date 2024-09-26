@@ -49,14 +49,22 @@ canceled_adr.reset_index(inplace=True)
 
 not_canceled_data = df[df['is_canceled']==0]
 not_canceled_adr = not_canceled_data.groupby('reservation_status_date')[['adr']].mean().reset_index()
+
+sns.lineplot(x='reservation_status_date',y='adr',data=canceled_adr,label='canceled')
+sns.lineplot(x='reservation_status_date',y='adr',data=not_canceled_adr,label='not_canceled')
+plt.title('Average Daily Rate Based on Cancellation',size=25)
+plt.xlabel('reservation status date',size=18)
+plt.ylabel('average daily rate',size=18)
+plt.legend(fontsize=18)
+plt.show()
 ```
 
 ## Sample Visuals
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/d6b1d123-3bf4-46ee-abb4-e5a3ee4b2331)
 
-![alt text](image-1.png)
 
+![image](https://github.com/user-attachments/assets/c470be3e-072c-486a-ae13-ace574867d2b)
 
 ## Suggestions
 
